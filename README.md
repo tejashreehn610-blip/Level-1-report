@@ -98,26 +98,27 @@ To keep lift constant, if Velocity decreases, the Coefficient of Lift (angle of 
  **Learnings and Outcomes :**
  1. Learnt about the BLDC motors.
  2. Learnt about the LiPo batteries.
- 3. Learnt about ESC(electronic speed controller).\
+ 3. Learnt about ESC(electronic speed controller).
+
 **Circuit design :**
 ![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/d60b4f00acdfb317b211205cfe35d5c0ccdcba39/Screenshot%202026-01-18%20215642.png)\
-**Overview :**\
+**Overview :**
 The circuit connections are made as shown about but while performing i used VRPS insted of LiPo battery.\
 Lets us learn about the each and every complonets that we have used briefly!\
-**BLDC MOTOR :**\
+**BLDC MOTOR :**
 ![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/ed5ea761f786d9da53e588cf22b5a0c4382846fc/WhatsApp%20Image%202026-01-18%20at%2010.33.10%20PM.jpeg)\
 The motor i have used here is 1000KV. KV is nothing but RPM/V(no load).\
 It works on the principle of magnetic attraction,repulsion and electronic commutation.\
 These are power hungry and the most common method for powering them is using LiPo batteries.\
 A Brushless Direct Current motor is an electric motor that uses electronic switching instead of brushes for rotation.The ESC supplies 3-phase AC to the stator, creating a rotating magnetic field that pulls the permanent-magnet rotor. Rotor (permanent magnets), stator (3-phase windings), and electronic controller (ESC).The motor needs AC to create a rotating magnetic field, so DC is converted into AC by the ESC.\
-**LiPo Battery :**\
+**LiPo Battery :**
 ![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/ae23fc1b3c9c0d44558b6a7eb933227369f6425f/Screenshot%202026-01-18%20224938.png)\
 By using LiPo battery we can give more power supply to BLDC motors.\
 LiPo batteries are used in BLDC motors and drones because they are lightweight and compact.
 They can deliver high current quickly, which BLDC motors require.
 They have high energy density, giving longer run time.
 They provide stable power output for smooth motor performance.\
-**ESC :**\
+**ESC :**
 ![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/79150680ec234ea8b95a9784076cf72a4d694e32/Screenshot%202026-01-18%20230821.png)\
 ESC (Electronic Speed Controller) is a device used to control the speed of BLDC motors.
 It receives a low-power control signal (PWM) from a microcontroller like Arduino.
@@ -147,6 +148,41 @@ It ensures the ESC responds correctly to the full range of throttle signals\
 Now the calibration is done.\
 **ESC Calibration = teaching ESC min & max throttle**\
 [click here](https://youtu.be/tfgldrxWmf0) to check the video performed in the lab.
+# TASK 7 BASICS OF PID :
+**Objective :**
+* Understand PID tuning for UAV stability.
+* Learn how GPS Hold and Altitude Hold work, tabulate the differences between the two.
+* Tabulate the differences between GPS Hold and Altitude Hold.\
+
+**Learnings and Outcomes :**\
+Before going to the the PID system , lets 1st learn the basic control system of PID system.\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/65e972bef962399039e3288c50635d949393e9bb/Screenshot%202026-01-25%20163558.png)\
+**Control system :** Main job is to generate an apropriate actuating signal
+so that the system produces the desired controlled variable.\
+### BLOCK DIAGRAM OF PID SYSTEM:
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/7795f380c2bee59e50ca541c8dd4b1a8d3ea699d/Screenshot%202026-01-25%20180300.png)\
+Explaination of PID is explained in my notes prepaired based on the resourse material provided\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/e69ad4d0c8ce4179f0eeaef826de74b5bfb70fa9/WhatsApp%20Image%202026-01-25%20at%206.25.24%20PM.jpeg)\
+Here S.S.E is nothing but Steady State Error (SSE) in a PID controller refers to the difference between the desired output and the actual output after it has reached a steady state; it tells you how far the system is from the target after it has stabilized.\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/095e465d90b1f03ba4d11820915738e74d65ab58/WhatsApp%20Image%202026-01-25%20at%206.25.24%20PM%20(1).jpeg)\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/e16102852ac616726e8051a5173d5032c22b90d9/WhatsApp%20Image%202026-01-25%20at%206.33.52%20PM.jpeg)\
+Below is the complete block diagram with formula\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/b1c4ddd9866facc0ca6f038a141d36ab17d2e95b/WhatsApp%20Image%202026-01-25%20at%205.56.18%20PM.jpeg)\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/fc78446b7a7380bae917f3200065157e122796e3/Screenshot%202026-01-25%20184118.png)\
+PID ANALOGY HAS BEEN STUDIED FORM THE RESOURSE MATERIAL PROVIDED\
+### COMPARISION B/W GPS HOLD AND AltHold :
+| Feature | GPS Hold (Loiter Mode) | Altitude Hold (AltHold) Mode |
+| :--- | :--- | :--- |
+| **Primary Function** | Maintains 3D position (Lat, Lon, and Alt). | Maintains vertical height only. |
+| **Sticks Centered** | **Full Stop:** Locks in place even if wind pushes it. | **Drift:** Stays at height but moves with the wind. |
+| **Sensors Used** | GPS + Barometer + IMU + Compass. | Barometer + IMU (No GPS needed). |
+| **Wind Resistance** | **Automatic:** Actively fights wind to stay on point. | **Manual:** Pilot must counter-steer to stop drift. |
+| **Safety Behavior** | "Panic" friendly; releasing sticks brakes the drone. | Maintains momentum; drone glides until manual braking. |
+| **Environment** | Best for Outdoors with clear sky view. | Best for Indoors or GPS-denied areas (tunnels/forests). |
+| **Drift Control** | Automatically stabilized via satellite data. | Requires constant manual correction for position. |
+| **Precision** | **High:** Stays within a few centimeters. | **Moderate:** Only vertical precision is managed. |
+| **Best Use Case** | Photography, Mapping, and "Parking" the drone. | Smooth cinematic shots and learning manual control. |
+
 # TASK 8 DIFFERENT FIGHT MODES IN MISSION PLANNER :
 **Objective :**\
 To understand the various flight modes available in Mission Planner and their specific applications.\
@@ -280,7 +316,85 @@ Helps maintain stability and prevents the drone from drifting or wobbling.\
 Causes the drone to perform a direct flip (forward, backward, or sideways).\
 Caution: Only use with carbon fiber propellers; plastic propellers are likely to break due to pressure.\
 The drone flips once and then automatically reverts to its previous flight mode.\
-Can be activated using channel 7 or 8 for safety, rather than directly on the flight mode switch.\
+Can be activated using channel 7 or 8 for safety, rather than directly on the flight mode switch.
+# TASK 9 DGCA REGULATIONS:
+**Objective :**
+* Understand and follow the laws and regulations related to flying of drones in India. Specifically study about the, “Drone Rules 2021 by the Indian Govt”.
+* Study BVLOS regulations and flight planning considerations.
+* Make a detailed flowchart on both the above topics.
+
+**Learnings and Outcomes :**\
+Here is the flowchart \
+can check the both flowcharts based on few of the rules & regulations set by the DGCA & MoCA under the New Drone Rules 2021;\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/2fc061262c63ff9a21ff22a402888e036c9cac23/mermaid-diagram-2026-01-27-001714.png)\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/1f5849e262afe00db3a303519beda11cd1e2ae30/mermaid-diagram-2026-01-27-002356.png)\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/7881bbad42295f646c4fb7e53bddd06e292d0748/Screenshot%202026-01-27%20003156.png)\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/2a05c59774d08ce5a989ec6e7f0cb31e2cd6c004/Screenshot%202026-01-27%20003233.png)\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/fa7612dbce478227a575ee82657ae15cefb745a1/Screenshot%202026-01-27%20003326.png)\
+**About BVLOS (Beyond Visual Line of Sight) regulations and how they impact flight planning, airspace management, and safety in India**\
+# BVLOS Regulations and Operations in India
+
+**BVLOS (Beyond Visual Line of Sight)** refers to drone operations where the pilot controls the aircraft without maintaining a direct eye-contact view, relying instead on onboard sensors and data links.
+
+---
+
+## 1. Regulatory Framework (DGCA)
+In India, the **Directorate General of Civil Aviation (DGCA)** governs BVLOS under the **Drone Rules, 2021** and the **National UTM Policy**.
+
+* **Digital Sky Platform:** The central IT system for drone registration and flight permissions.
+* **NPNT (No Permission-No Takeoff):** A software-based "gatekeeper" that prevents the drone from arming its motors unless a valid permission artifact is present.
+* **Airspace Zoning:** * **Green Zone:** Up to 400ft; generally open but requires notification for BVLOS.
+    * **Yellow Zone:** Controlled airspace; requires ATC permission.
+    * **Red Zone:** Prohibited; requires Central Government approval.
+
+
+
+---
+
+## 2. Impact on Flight Planning
+Planning for BVLOS is significantly more complex than standard VLOS missions:
+
+* **SORA (Specific Operations Risk Assessment):** Operators must evaluate the "Ground Risk" (people on the floor) and "Air Risk" (other aircraft) for the entire flight path.
+* **Redundancy Planning:** Plans must include secondary communication links (e.g., switching from 4G to Satellite) if the primary link fails.
+* **Weather Monitoring:** Real-time data is required for the *entire* route, as conditions 10km away may differ from the takeoff point.
+
+---
+
+## 3. Airspace Management & UTM
+Because BVLOS drones are "invisible" to the pilot, **Unmanned Traffic Management (UTM)** acts as the digital air traffic control.
+
+* **Strategic De-confliction:** The UTM system ensures no two drone flight plans overlap in time and space before they take off.
+* **Real-time Tracking:** Drones must broadcast their location via **Remote ID**, allowing authorities to monitor the "invisible" traffic.
+* **Dynamic Geofencing:** If an emergency (like a VIP movement) occurs, the UTM can push a "virtual fence" to drones in the air, forcing them to reroute or land.
+
+
+
+---
+
+## 4. Safety and Technical Requirements
+Safety is the highest priority for the DGCA when granting BVLOS authorizations.
+
+| Requirement | Description |
+| :--- | :--- |
+| **Detect & Avoid (DAA)** | Sensors (LiDAR/Radar) that allow the drone to autonomously steer clear of obstacles. |
+| **Fail-Safe Systems** | Includes "Return to Home," "Independent Flight Termination," and "Parachute Recovery Systems." |
+| **Encrypted C2 Link** | The Command and Control link must be encrypted to prevent hijacking or signal interference. |
+| **Human-in-the-loop** | Even if autonomous, a certified Remote Pilot must be able to intervene at any moment. |
+
+---
+
+## 5. Summary of Impacts
+* **Logistics:** Enables "Middle Mile" and "Last Mile" deliveries in rural India.
+* **Infrastructure:** Allows for hundreds of kilometers of railway or pipeline inspection in a single flight.
+* **Agriculture:** Permits large-scale pesticide spraying over massive hectares of farmland.
+
+
+
+
+
+
+
+
 
 
 
