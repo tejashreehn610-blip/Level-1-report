@@ -72,7 +72,7 @@ W = mg\
  F=mg\
 4.*Drag (D)* is the backward or resisting force caused by air friction and pressure differences around the aircraft body. The drag force is calculated as:\
  ![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/d2cbe05380e646e75621f1b20ae8405157cd4a20/image.png)
- ### CONCEPT OF LIFT:
+### CONCEPT OF LIFT:
  Lift is the product of air we're moving through and deflecting it downward.If we deflect more air downward more lift we produce.\
  FORMULA
  ![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/8d14539db5dce2052bdda42d135f6b9f6bb08eee/Screenshot%202025-10-26%20233223.png)\
@@ -92,6 +92,158 @@ To keep lift constant, if Velocity decreases, the Coefficient of Lift (angle of 
 **Pitot Tube:** A sensor that measures airspeed by comparing incoming ram air pressure with static air pressure.\
 **Radio Altimeter:** A device that measures an aircraft's exact height above the ground by bouncing radio waves off the terrain.\
 ![image](https://github.com/tejashreehn610-blip/Level-1-report/blob/main/Gemini_Generated_Image_otzme3otzme3otzm.png?raw=true)
+# TASK 2 UNDERSTANDING AND DESIGNING AN AIR FOIL:
+**Objective :**
+* Understand the fundamentals of an Aerofoil, terms associated with it, the nomenclature, concept of turbulence.
+* Use Fusion 360 to model an NACA 4412 air foil of 100 mm chord length & 160 mm air foil span, in Fusion 360 using DAT to Spline/Canvas tool.
+* Simulate lift and drag at 25 m/s wind speed to ensure at least 5N lift, use Autodesk CFD for simulation. (Compare with 2 materials, composite based air-foil & wood based air-foil), also state the Angle of Attack in your report.
+
+**Learnings and Outcomes:**
+### Basic Aviation terminology:
+* Airfoil: Any structure designed to produce lift; while wings are the most common example, propellers are also considered airfoils, generating thrust (forward lift).
+* Leading Edge: The very front part of an airfoil.
+* Trailing Edge: The rear end of an airfoil.
+* Chord Line: An imaginary straight line connecting the leading edge to the trailing edge of an airfoil.
+* Camber: The curvature of an airfoil, consisting of the Upper Camber (top surface), Lower Camber (bottom surface), and Mean Camber (the average of the two).
+* Wingspan: The total distance from one wingtip to the other.
+* Wing Area: Calculated by multiplying the average length by the average width of the wing.
+* Planform: The shape of the wing as viewed from above.
+* Aspect Ratio: The ratio of the wingspan to the wing chord; gliders utilize high aspect ratios for reduced drag, while fighter jets use low aspect ratios for high maneuverability.
+* Angle of Incidence: The angle between the chord line and the longitudinal axis of the aircraft, typically fixed for optimal takeoff speed.
+* Relative Airflow: The airflow with respect to the wings, opposing the aircraft's true motion.
+* Angle of Attack: The angle between the chord line and the relative airflow, determining many operational limits.\
+here are the images of each and every technology to understant the terminologies visually.\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/4863d8f5b29880b19d5616c5007122035d865be9/WhatsApp%20Image%202026-02-09%20at%209.12.52%20PM.jpeg)\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/81e8cb84c2fc01c2e31d9691757daee214f13550/WhatsApp%20Image%202026-02-09%20at%209.20.07%20PM.jpeg)
+### Airfoil Nomenclature:
+For 4 digit\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/af54c68f1fcf2058488ee90b68a50104ea9d34e8/Screenshot%202026-02-09%20225610.png)\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/8387b265480f4d10ba6f261e9ade44e214e62bec/WhatsApp%20Image%202026-02-09%20at%2011.53.38%20PM.jpeg)\
+below you can watch the mindmap and understand how nomenclature is done for 4, 5 & 6 digits\
+[click here](https://youtu.be/QG9Ft9BPh8Y)\
+**Turbulence:**\
+Turbulence occurs when airflow separates from a surface, forming a low-pressure wake with swirling vortices behind the object.
+#  TASK 3 BASIC UAV ASSEMBLY & COMPONENT FAMILLIZATION :
+**Objective :** \
+To understand and identify essential UAV components and their compatibility.\
+Identify and understand flight controllers (Pixhawk, APM), ESCs, motors, propellers, and battery management.\
+Learn about LiPo, Li-ion, and NiMH batteries, their charge cycles, and safety.\
+List all the components required to build a quadcopter with a minimum thrust-to-weight ratio of 3:1, each of the components should be compatible with each other.\
+Perform manual pen-and-paper calculations for flight time and thrust-to-weight ratio using component datasheets
+Use E-Calc to verify the results.\
+**Learnings and Outcomes :**\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/58998bf0dc17d50699086910c76bad7c8aa473e6/WhatsApp%20Image%202026-02-22%20at%206.24.00%20PM.jpeg)
+### Inertial Measurement Unit (IMU)
+
+The IMU is crucial, combining three important sensors:
+
+* **Accelerometers**: These MEMS sensors measure linear acceleration and gravity along three axes (X, Y, Z). They contain a tiny proof-mass attached to springs; when the drone experiences force, the mass moves, changing the capacitance between it and fixed plates, which is converted into an electrical signal. This helps determine the drone's orientation and detect roll and pitch.
+* **Gyroscopes**: These MEMS sensors measure angular velocity, or the rate of rotation, around the drone's axes (yaw, pitch, roll). They operate based on the Coriolis effect: a vibrating mass deflects when rotated, and this deflection indicates the angular rate via capacitance changes. Gyroscopes are essential for maintaining drone stability and compensating for disturbances.
+* **Magnetometers**: Although not explicitly detailed, magnetometers are usually part of the IMU and detect magnetic fields, primarily Earth's magnetic field. They provide a compass function for navigation and maintaining heading.
+
+### Barometer Sensor
+
+A MEMS-based barometer sensor is used to determine the drone's altitude by measuring atmospheric pressure. It features a flexible membrane that deflects in response to pressure changes, which capacitance sensors then measure.
+
+### Sensor Fusion for Accuracy
+
+* **Challenge**: Sensor signals can be affected by noise due to defects, mechanical vibrations from propellers, and magnetic interference.
+* **Solution**: Modern drones use **sensor fusion** to overcome these issues. This involves combining data from different sensors, like GPS and IMU, and integrating technologies like radar to produce more accurate measurements.
+
+### Decision-Making: Control System and Algorithms
+
+* **Control Logic**: Accurate sensor signals are fed into the drone's control system, which includes control logic and algorithms to reduce errors and make decisions.
+* **Kalman Filter (KF) Algorithm**: One such algorithm is the Kalman Filter, which reads past and present data to understand the drone's state. It uses its logic for GPS navigation, returning home, and stabilizing the drone against external factors like wind.
+* **Motor Control**: The KF algorithm, embedded in the processor, makes smart decisions to control the speeds of the Brushless DC (BLDC) motors, enabling the quadcopter to handle challenging environments.
+
+### Leading Drone Companies
+
+**DJI** is highlighted as a leading company in the consumer drone market, known for its advanced flight control algorithms, dual IMUs for reliability, and vibration dampening systems. Other companies like **Parrot**, **Autel**, and **Yuneec** are mentioned as alternatives in the market.
+
+### Power and Communication
+
+* **Power Source**: Lithium-ion batteries supply power to the BLDC motors, electronic circuits, antennas, and sensors.
+* **Control Signal**: Drones receive control signals from the user via common radio frequency technology, with a communication range of one to two kilometers for consumer drones.
+
+### Lost Drone Recovery: GPS and Internet Technology
+
+* **Return Home Feature**: If a drone travels out of communication range, modern drones use GPS and tower-based internet technology to return to a pre-set home location.
+### MOTOR NOMENCLATURE :
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/2227006de4f3c922920eff7009c30501d39788fe/Screenshot%202026-02-22%20184006.png)\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/2bf863e27fc916a15cceef1f0a7cd1badc7efc0c/Screenshot%202026-02-22%20184301.png)\
+**MATERIAL SELECTION :**\
+For the drone frame, carbon fiber was selected due to its exceptional strength-to-weight ratio, rigidity, and resistance to deformation. It ensures the drone remains lightweight (frame weight: 400 grams) while being capable of withstanding mechanical stress during flight. Its non-corrosive properties make it ideal for long-term use in various environments.\
+**COMPONENT SELECTION :**\
+1.Motor\
+Model: EMAX , Ecoll 2814_730(730)\
+Justification: This motor provides a balance between efficiency and power, ensuring sufficient RPMs for stable hover and maneuverability.\
+2.Propellers:\
+Type: Generic 10-inch with a 4.7-inch pitch\
+Justification: Optimized for high efficiency and compatibility with the motor, ensuring adequate thrust.\
+3.Battery:\
+Type: LiPo 2200mAh, 3S\
+4.ESC (Electronic Speed Controller):\
+Type: 20A max ESC\
+Justification: Matches the current and voltage demands of the selected motor, providing reliable control without overheating.\
+5.Frame:\
+Material: Carbon fiber (weight: 760 grams)\
+Justification: Lightweight and durable, enhancing stability and endurance.\
+### RESULT FROM eCalc :
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/4cd817d06505841494d1729e225112c0dd7b047d/Screenshot%202026-02-22%20195959.png)\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/9185c016158e905d631d17be4710fd8ed95bcb54/Screenshot%202026-02-22%20200031.png)\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/f6b705bf45c68e2bb6d517a9b9c7e309831d7038/Screenshot%202026-02-22%20200050.png)\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/9524d8c775c7191e68d5cd21259ee9019e732a87/Screenshot%202026-02-22%20200100.png)\
+GOT THE THRUST TO WEIGHT RATIO - 3.1\
+**MANUAL CALCULATION :**\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/cb474fdcf23a12851ceebe241b97925815fedbad/WhatsApp%20Image%202026-02-22%20at%2010.26.05%20PM.jpeg)
+# TASK 4 PROPELLER BLADE DESIGN AND STIMULATOR :
+**Objective :**\
+ To understand propeller fundamentals and simulate its aerodynamic performance.\
+**Learnings and Outcomes :**\
+Propellers are essential components in drones, converting rotational motion into thrust to enable flight. For this task, the objective was to design a toroidal propeller capable of generating a lift of approximately 9 Newtons. Both clockwise (CW) and counterclockwise (CCW) propellers were designed to ensure stability and functionality. The propellers were modeled using the Autodesk Fusion 360 .\
+**Drone Propellers Function and Working :**
+* Purpose: Propellers generate thrust by creating a pressure differential between the top and bottom surfaces of the blade. This allows drones to ascend, descend, and maneuver.
+* Mechanics: The rotation of the propeller blades causes airflow. The angle of attack and blade shape dictate how much thrust is produced.
+CW and CCW Propellers: To counteract torque (rotational force), drones use pairs of propellers rotating in opposite directions.
+* Labeling: Propellers are often marked with dimensions like 5045 (5-inch diameter, 4.5-inch pitch). The pitch refers to how far the propeller would travel in one rotation if it were moving through a solid medium.
+* Orientation: CW propellers are mounted on motors rotating clockwise, while CCW propellers are for counterclockwise rotation.
+
+**Step-by-Step Process in Fusion 360**\
+**Design Workflow**\
+1.Create the Base Profile:
+* Open Fusion 360 and start a new design.
+* Use the Sketch Tool to draw a 2D profile of the blade’s leading and trailing edges on the X-Y plane.
+Ensure the blade's shape accounts for aerodynamic principles (e.g., a slight camber for lift generation).
+
+2.Generate the Blade Shape:
+
+* Use the Loft Tool to create a 3D blade by connecting the root and tip profiles of the blade.
+* Apply a slight twist using the Form Tool to simulate the pitch angle, enhancing airflow efficiency.
+
+3.Design the Hub:
+
+* Create a cylindrical hub using the Revolve Tool. Ensure internal threading matches the motor shaft specifications.
+* Include keyholes or flat sections to secure the propeller on the BLDC motor shaft.
+
+4.Replicate for Multiple Blades:
+
+* Use the Circular Pattern Tool to replicate the blade design around the hub, creating a toroidal configuration.
+
+5.Final Adjustments:
+
+* Smooth edges and surfaces using the Fillet Tool to reduce turbulence.
+* Check dimensions against required specifications.
+
+**Features Used in Fusion 360**\
+1.Sketch Tool: For creating 2D profiles.\
+2.Loft Tool: For transforming 2D sketches into 3D geometries.\
+3.Revolve Tool: For creating symmetrical hub components.\
+4.Circular Pattern Tool: For arranging multiple blades around a central axis.\
+5.Fillet Tool: For smoothing sharp edges.\
+6.Parameter Tool: To input and adjust specific dimensions dynamically.\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/7f81b3197eae345cbba9ee253019699744ff765b/WhatsApp%20Image%202026-02-12%20at%2010.12.33%20PM.jpeg)\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/9fea0c8b075c5c982e4ba57601a15e2ef236dccf/WhatsApp%20Image%202026-02-12%20at%2010.12.33%20PM%20(1).jpeg)\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/d3ec43ad508c36a8ec970d9f6fb8332af193c101/WhatsApp%20Image%202026-02-12%20at%2010.12.34%20PM.jpeg)\
 # TASK 5 UNDERSTAND ABOUT ESC :
 **Objective:** \
  To control the speed of a BLDC motor using Arduino UNO, ESC, and a potentiometer.\
@@ -148,11 +300,26 @@ It ensures the ESC responds correctly to the full range of throttle signals\
 Now the calibration is done.\
 **ESC Calibration = teaching ESC min & max throttle**\
 [click here](https://youtu.be/tfgldrxWmf0) to check the video performed in the lab.
+# TASK 6 RF COMMUNICATION IN UAVs
+**Objective:**
+* Learn about radio frequencies used in UAVs (2.4GHz, 5.8GHz, Lora).
+* Understand the various security implications in the different wireless protocols used in drones, along with the emerging threats and ways of mitigation.
+* Understand the procedure which goes behind the binding of an ELRS receiver.
+* Bind the 2.4 GHz RP1 Rx with the TX 16S MK-ll.\
+**Learnings and Outcomes:**\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/50370d921d2a90e306690b58990aac254bdef038/WhatsApp%20Image%202026-02-22%20at%2011.55.01%20PM.jpeg)
+### RF Frequencies :
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/091ff36afe7a0a33ed6bd174c6702dd9627a7758/WhatsApp%20Image%202025-10-21%20at%204.26.04%20PM.jpeg)\
+### LoRaWAN :
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/7cfec5aa63b90519296c5ef8f3b3f0a340cc3c56/WhatsApp%20Image%202026-02-23%20at%2012.03.42%20AM%20(2).jpeg)\
+### PROTOCALS :
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/55b2f948449ac0c3619cc636f7528ab89b1f8346/WhatsApp%20Image%202026-02-23%20at%2012.03.42%20AM%20(1).jpeg)\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-1-report/b4efc02ab96de81ebdbf23cad6ea8426b143e92d/WhatsApp%20Image%202026-02-23%20at%2012.03.42%20AM.jpeg)\
 # TASK 7 BASICS OF PID :
 **Objective :**
 * Understand PID tuning for UAV stability.
 * Learn how GPS Hold and Altitude Hold work, tabulate the differences between the two.
-* Tabulate the differences between GPS Hold and Altitude Hold.\
+* Tabulate the differences between GPS Hold and Altitude Hold.
 
 **Learnings and Outcomes :**\
 Before going to the the PID system , lets 1st learn the basic control system of PID system.\
@@ -336,7 +503,6 @@ can check the both flowcharts based on few of the rules & regulations set by the
 
 **BVLOS (Beyond Visual Line of Sight)** refers to drone operations where the pilot controls the aircraft without maintaining a direct eye-contact view, relying instead on onboard sensors and data links.
 
----
 
 ## 1. Regulatory Framework (DGCA)
 In India, the **Directorate General of Civil Aviation (DGCA)** governs BVLOS under the **Drone Rules, 2021** and the **National UTM Policy**.
@@ -348,9 +514,6 @@ In India, the **Directorate General of Civil Aviation (DGCA)** governs BVLOS und
     * **Red Zone:** Prohibited; requires Central Government approval.
 
 
-
----
-
 ## 2. Impact on Flight Planning
 Planning for BVLOS is significantly more complex than standard VLOS missions:
 
@@ -358,7 +521,6 @@ Planning for BVLOS is significantly more complex than standard VLOS missions:
 * **Redundancy Planning:** Plans must include secondary communication links (e.g., switching from 4G to Satellite) if the primary link fails.
 * **Weather Monitoring:** Real-time data is required for the *entire* route, as conditions 10km away may differ from the takeoff point.
 
----
 
 ## 3. Airspace Management & UTM
 Because BVLOS drones are "invisible" to the pilot, **Unmanned Traffic Management (UTM)** acts as the digital air traffic control.
@@ -366,10 +528,6 @@ Because BVLOS drones are "invisible" to the pilot, **Unmanned Traffic Management
 * **Strategic De-confliction:** The UTM system ensures no two drone flight plans overlap in time and space before they take off.
 * **Real-time Tracking:** Drones must broadcast their location via **Remote ID**, allowing authorities to monitor the "invisible" traffic.
 * **Dynamic Geofencing:** If an emergency (like a VIP movement) occurs, the UTM can push a "virtual fence" to drones in the air, forcing them to reroute or land.
-
-
-
----
 
 ## 4. Safety and Technical Requirements
 Safety is the highest priority for the DGCA when granting BVLOS authorizations.
@@ -380,8 +538,6 @@ Safety is the highest priority for the DGCA when granting BVLOS authorizations.
 | **Fail-Safe Systems** | Includes "Return to Home," "Independent Flight Termination," and "Parachute Recovery Systems." |
 | **Encrypted C2 Link** | The Command and Control link must be encrypted to prevent hijacking or signal interference. |
 | **Human-in-the-loop** | Even if autonomous, a certified Remote Pilot must be able to intervene at any moment. |
-
----
 
 ## 5. Summary of Impacts
 * **Logistics:** Enables "Middle Mile" and "Last Mile" deliveries in rural India.
